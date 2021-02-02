@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="10dp"
+        android:orientation="vertical">
+        <TextView
+            android:id = "@+id/simple_windtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="序号  sensorid 风速  风向"
+            android:textColor="#173E8E"
+            android:textSize="20dp"
+            android:gravity="left"/>
+        <TextView
+            android:id = "@+id/simple_wind1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#173E8E"
+            android:textSize="20dp"
+            android:text="1    1.0    125"
+            android:gravity="left"/>
+        <TextView
+            android:id = "@+id/simple_wind2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#173E8E"
+            android:textSize="20dp"
+            android:text="2    1.0    125"
+            android:gravity="left"/>
+        <TextView
+            android:id = "@+id/simple_wind3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#173E8E"
+            android:textSize="20dp"
+            android:text="3    1.0    125"
+            android:gravity="left"/>
+        <TextView
+            android:id = "@+id/simple_wind4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#173E8E"
+            android:textSize="20dp"
+            android:text="4    1.0    125"
+            android:gravity="left"/>
+        <TextView
+            android:id = "@+id/simple_wind5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#173E8E"
+            android:text="5    1.0    125"
+            android:textSize="20dp"
+            android:gravity="left"/>
+
+        <TextView
+            android:id = "@+id/simple_wind6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#173E8E"
+            android:textSize="20dp"
+            android:text="1    1.0    125"
+            android:gravity="left"/>
+        <TextView
+            android:id = "@+id/simple_wind7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#173E8E"
+            android:textSize="20dp"
+            android:text="2    1.0    125"
+            android:gravity="left"/>
+        <TextView
+            android:id = "@+id/simple_wind8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#173E8E"
+            android:textSize="20dp"
+            android:text="3    1.0    125"
+            android:gravity="left"/>
+        <TextView
+            android:id = "@+id/simple_wind9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#173E8E"
+            android:textSize="20dp"
+            android:text="4    1.0    125"
+            android:gravity="left"/>
+        <TextView
+            android:id = "@+id/simple_wind10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#173E8E"
+            android:text="5    1.0    125"
+            android:textSize="20dp"
+            android:gravity="left"/>
+        <TextView
+            android:id = "@+id/simple_wind11"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#173E8E"
+            android:textSize="20dp"
+            android:text="1    1.0    125"
+            android:gravity="left"/>
+        <TextView
+            android:id = "@+id/simple_wind12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#173E8E"
+            android:textSize="20dp"
+            android:text="2    1.0    125"
+            android:gravity="left"/>
+        <TextView
+            android:id = "@+id/simple_wind13"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#173E8E"
+            android:textSize="20dp"
+            android:text="3    1.0    125"
+            android:gravity="left"/>
+        <TextView
+            android:id = "@+id/simple_wind14"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#173E8E"
+            android:textSize="20dp"
+            android:text="4    1.0    125"
+            android:gravity="left"/>
+        <TextView
+            android:id = "@+id/simple_wind15"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#173E8E"
+            android:text="5    1.0    125"
+            android:textSize="20dp"
+            android:gravity="left"/>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

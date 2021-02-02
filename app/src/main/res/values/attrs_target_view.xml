@@ -1,0 +1,8 @@
+<resources>
+    <declare-styleable name="TargetView">
+        <attr name="targetViewString" format="string" />
+        <attr name="targetViewDimension" format="dimension" />
+        <attr name="targetViewColor" format="color" />
+        <attr name="targetViewDrawable" format="color|reference" />
+    </declare-styleable>
+</resources>
