@@ -17,6 +17,8 @@ public class Second2Fragment extends Fragment {
             Bundle savedInstanceState
     ) {
         // Inflate the layout for this fragment
+        int i=5;
+        i++;
         return inflater.inflate(R.layout.fragment_second2, container, false);
     }
 
