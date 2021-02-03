@@ -8,6 +8,8 @@ import android.view.Display;
 
 import com.android.tony.defenselib.handler.IExceptionHandler;
 
+import org.litepal.LitePal;
+
 import cn.geobeans.biathlon.utils.CrashHandler;
 import cn.geobeans.biathlon.utils.PreferencesUtil;
 
@@ -32,6 +34,7 @@ public class App extends Application implements IExceptionHandler {
     public void onCreate() {
         super.onCreate();
         mContext = this;
+        LitePal.initialize(this);
         CrashHandler.getInstance().init(this);
         PreferencesUtil.getInstance().init(this);
     }
