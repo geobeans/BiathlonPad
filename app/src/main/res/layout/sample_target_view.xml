@@ -8,7 +8,7 @@
         android:id = "@+id/target_1"
         style="@style/Widget.AppTheme.MyView"
         android:layout_width="match_parent"
-        android:layout_height="500dp"
+        android:layout_height="800dp"
 
         app:exampleDimension="24sp"
         app:exampleDrawable="@android:drawable/ic_menu_add"

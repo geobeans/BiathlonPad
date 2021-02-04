@@ -18,7 +18,7 @@
 
     <style name="item_panel">
         <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">80dp</item>
+        <item name="android:layout_height">100dp</item>
         <item name="android:layout_weight">1</item>
     </style>
 

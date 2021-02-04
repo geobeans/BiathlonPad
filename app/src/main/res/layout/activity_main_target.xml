@@ -174,7 +174,6 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <TextView
-            android:id="@+id/skierName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -183,7 +182,7 @@
             android:textSize="22dp">
         </TextView>
         <Spinner
-            android:id="@+id/selskier"
+            android:id="@+id/athelete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="22dp"
@@ -203,7 +202,7 @@
             android:textSize="22dp">
         </TextView>
         <Spinner
-            android:id="@+id/lane"
+            android:id="@+id/lanes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="22dp"
@@ -223,7 +222,7 @@
             android:textSize="22dp">
         </TextView>
         <RadioGroup
-            android:id="@+id/rg_sex"
+            android:id="@+id/rg_prone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -236,6 +235,7 @@
                 android:layout_marginRight="15dp"
                 android:text="Prone"
                 android:textSize="22dp"
+                android:checked="true"
                  />
 
             <RadioButton
@@ -260,7 +260,7 @@
             android:textSize="22dp">
         </TextView>
         <RadioGroup
-            android:id="@+id/zeoring"
+            android:id="@+id/rg_zeoring"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -273,6 +273,7 @@
                 android:layout_marginRight="15dp"
                 android:text="Yes"
                 android:textSize="22dp"
+                android:checked="true"
                 />
 
             <RadioButton

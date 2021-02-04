@@ -33,6 +33,9 @@ public class TargetView extends View {
 
     private Paint mHitPaint;
 
+    private int mContentWidth = 0;
+    private int mContentHeight = 0;
+
     int mIndex = 0;
     int mSelHit = -1;
 
@@ -175,6 +178,16 @@ public class TargetView extends View {
         return true;
     }
 
+    public float getHitX(int index)
+    {
+        return mHitX[index]/mContentWidth;
+    }
+
+    public float getHitY(int index)
+    {
+        return mHitY[index]/mContentHeight;
+    }
+
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
@@ -233,14 +246,14 @@ public class TargetView extends View {
         int paddingRight = getPaddingRight();
         int paddingBottom = getPaddingBottom();
 
-        int contentWidth = getWidth() - paddingLeft - paddingRight;
-        int contentHeight = getHeight() - paddingTop - paddingBottom;
+        mContentWidth = getWidth() - paddingLeft - paddingRight;
+        mContentHeight = getHeight() - paddingTop - paddingBottom;
 
-        canvas.drawRect(0,0,contentWidth,contentHeight,mBackgroudPaint);
+        canvas.drawRect(0,0,mContentWidth,mContentHeight,mBackgroudPaint);
         //中心点
-        int centerX = contentWidth/2;
-        int centerY = contentHeight/2;
-        int radius = contentHeight>contentWidth?contentWidth:contentHeight;
+        int centerX = mContentWidth/2;
+        int centerY = mContentHeight/2;
+        int radius = mContentHeight>mContentWidth?mContentWidth:mContentHeight;
         radius = (radius-150)/2;
 
         canvas.drawCircle(centerX, centerY, radius, mCirclePaint);
@@ -270,9 +283,6 @@ public class TargetView extends View {
 //                    paddingLeft + contentWidth, paddingTop + contentHeight);
 //            mExampleDrawable.draw(canvas);
 //        }
-
-
-
     }
 
     /**
