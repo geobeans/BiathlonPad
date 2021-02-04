@@ -5,11 +5,7 @@ android {
     buildToolsVersion "29.0.3"
 
     defaultConfig {
-        //applicationId "cn.geobeans.biathlon"
-        //applicationId "cn.geobeans.biathlon_landscape_simulate"
-        applicationId "cn.geobeans.biathlon_landscape"
-        //applicationId "cn.geobeans.biathlon_landscape_test"
-        //applicationId "cn.geobeans.biathlon_target"
+        applicationId "cn.geobeans.biathlonPad"
         minSdkVersion 16
         targetSdkVersion 28
         versionCode 1

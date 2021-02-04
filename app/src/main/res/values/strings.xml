@@ -1,7 +1,5 @@
 <resources>
-    <string name="app_name">冬两横版</string>
-<!--    <string name="app_name">横版测试</string>-->
-<!--    <string name="app_name">模拟横版</string>-->
+    <string name="app_name">Shooting</string>
     <string name="title_activity_main_show">Winter Olympics Biathlon Monitoring</string>
 <!--        <string name="title_activity_main_show">模拟横版</string>-->
 

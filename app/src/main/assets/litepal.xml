@@ -32,6 +32,7 @@
     	</list>
     -->
     <list>
+        <mapping class="cn.geobeans.biathlon.entity.Shooting" />
     </list>
 
     <!--

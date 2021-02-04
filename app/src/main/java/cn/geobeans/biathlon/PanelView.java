@@ -181,30 +181,28 @@ public class PanelView extends View {
         //画圆
         float radius = contentHeight>contentWidth?contentWidth:contentHeight;
         radius -= 2*(mFontMetrics.bottom-mFontMetrics.top);
-        radius = radius/3.0f;
+        radius = radius/2.0f;
         float pointerL = radius / 1.5f;
         float cx = paddingLeft + (contentWidth) / 2;
         float cy = paddingTop + (contentHeight) / 2;
         canvas.drawCircle(cx, cy, radius, mCirclePaint);
-        //canvas.drawCircle(cx, cy, radius-20.0f, mCirclePaint1);
-        //canvas.drawCircle(cx, cy, radius-10.0f, mCirclePaint1);
 
-        canvas.drawLine(cx-radius,cy,cx-radius-pointerL,cy,mDashPaint);
-        canvas.drawLine(cx+radius,cy,cx+radius+pointerL,cy,mDashPaint);
-        canvas.drawLine(cx,cy-radius,cx,cy-radius-pointerL,mDashPaint);
-        canvas.drawLine(cx,cy+radius,cx,cy+radius+pointerL,mDashPaint);
+//        canvas.drawLine(cx-radius,cy,cx-radius-pointerL,cy,mDashPaint);
+//        canvas.drawLine(cx+radius,cy,cx+radius+pointerL,cy,mDashPaint);
+//        canvas.drawLine(cx,cy-radius,cx,cy-radius-pointerL,mDashPaint);
+//        canvas.drawLine(cx,cy+radius,cx,cy+radius+pointerL,mDashPaint);
 
-        canvas.save();
-        canvas.translate(cx,cy);
-        canvas.rotate(45.0f);
-        canvas.drawLine(radius,0.0f,radius+pointerL/2.0f,0.0f,mDashPaint);
-        canvas.rotate(90.0f);
-        canvas.drawLine(radius,0.0f,radius+pointerL/2.0f,0.0f,mDashPaint);
-        canvas.rotate(90.0f);
-        canvas.drawLine(radius,0.0f,radius+pointerL/2.0f,0.0f,mDashPaint);
-        canvas.rotate(90.0f);
-        canvas.drawLine(radius,0.0f,radius+pointerL/2.0f,0.0f,mDashPaint);
-        canvas.restore();
+//        canvas.save();
+//        canvas.translate(cx,cy);
+//        canvas.rotate(45.0f);
+//        canvas.drawLine(radius,0.0f,radius+pointerL/2.0f,0.0f,mDashPaint);
+//        canvas.rotate(90.0f);
+//        canvas.drawLine(radius,0.0f,radius+pointerL/2.0f,0.0f,mDashPaint);
+//        canvas.rotate(90.0f);
+//        canvas.drawLine(radius,0.0f,radius+pointerL/2.0f,0.0f,mDashPaint);
+//        canvas.rotate(90.0f);
+//        canvas.drawLine(radius,0.0f,radius+pointerL/2.0f,0.0f,mDashPaint);
+//        canvas.restore();
         // Draw the text.
         canvas.drawText(mWindSpeed,
                 paddingLeft + (contentWidth - mTextWidth) / 2,
@@ -221,34 +219,26 @@ public class PanelView extends View {
         canvas.save();
         canvas.translate(cx,cy);
         canvas.rotate(mAngle);
-//        mPointerPath.moveTo(startX,startY);
-//        mPointerPath.lineTo(middleX,middleY);
-//        mPointerPath.lineTo(endX,endY);
-//        mPointerPath.arcTo(-radius,-radius,
-//                radius,radius,-15.0f,30.0f,false);
-//        mPointerPath.close();
-//        canvas.drawPath(mPointerPath,mPointerPaint);
-
         canvas.drawLine(startX,startY,middleX,middleY,mPointerPaint);
         canvas.drawLine(middleX,middleY,endX,endY,mPointerPaint);
         canvas.drawArc(-radius,-radius,
                 radius,radius,-15.0f,30.0f,false,mPointerPaint);
 
         // Draw the angle text.
-        canvas.save();
-        int iAngle = (int)mAngle;
-        String strAngle = String.valueOf((iAngle+90)%360) + "°";
-        int currentCenterX = (int) (radius + pointerL - dp2px(5) + mAnglePaint.measureText(strAngle) / 2);
-        canvas.translate(currentCenterX, 0);
-        canvas.rotate(-mAngle);        //坐标系总旋转角度为360度
-
-        int textBaseLine = (int) (0 + (mFontMetrics.bottom - mFontMetrics.top) /2 - mFontMetrics.bottom);
-
-        canvas.drawText(strAngle,
-                0,
-                textBaseLine ,
-                mAnglePaint);
-        canvas.restore();
+//        canvas.save();
+//        int iAngle = (int)mAngle;
+//        String strAngle = String.valueOf((iAngle+90)%360) + "°";
+//        int currentCenterX = (int) (radius + pointerL - dp2px(5) + mAnglePaint.measureText(strAngle) / 2);
+//        canvas.translate(currentCenterX, 0);
+//        canvas.rotate(-mAngle);        //坐标系总旋转角度为360度
+//
+//        int textBaseLine = (int) (0 + (mFontMetrics.bottom - mFontMetrics.top) /2 - mFontMetrics.bottom);
+//
+//        canvas.drawText(strAngle,
+//                0,
+//                textBaseLine ,
+//                mAnglePaint);
+//        canvas.restore();
         canvas.restore();
     }
 
