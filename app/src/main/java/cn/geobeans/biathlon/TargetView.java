@@ -2,15 +2,23 @@ package cn.geobeans.biathlon;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.DashPathEffect;
+import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.text.TextPaint;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 /**
  * TODO: document your custom view class.
@@ -39,28 +47,32 @@ public class TargetView extends View {
     int mIndex = 0;
     int mSelHit = -1;
 
-    float[] mHitX = new float[5];
-    float[] mHitY = new float[5];
+    float[] mHitX = new float[8];
+    float[] mHitY = new float[8];
 
-    float[] mHitX0 = new float[5];
-    float[] mHitY0 = new float[5];
+    float[] mHitX0 = new float[8];
+    float[] mHitY0 = new float[8];
+
+    Date[] mHitDate = new Date[8];
+
+    List<Bitmap> mbmpHits = new ArrayList<>();
 
     public TargetView(Context context) {
         super(context);
-        init(null, 0);
+        init(context,null, 0);
     }
 
     public TargetView(Context context, AttributeSet attrs) {
         super(context, attrs);
-        init(attrs, 0);
+        init(context,attrs, 0);
     }
 
     public TargetView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
-        init(attrs, defStyle);
+        init(context,attrs, defStyle);
     }
 
-    private void init(AttributeSet attrs, int defStyle) {
+    private void init(Context context,AttributeSet attrs, int defStyle) {
         // Load attributes
         final TypedArray a = getContext().obtainStyledAttributes(
                 attrs, R.styleable.TargetView, defStyle, 0);
@@ -122,6 +134,15 @@ public class TargetView extends View {
         mTextPaint.setFlags(Paint.ANTI_ALIAS_FLAG);
         mTextPaint.setTextAlign(Paint.Align.LEFT);
 
+        try {
+            for(int i=1;i<=8;i++) {
+                Bitmap bmpHit = BitmapFactory.decodeStream(context.getAssets().open(i+".png"));
+                mbmpHits.add(bmpHit);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         // Update TextPaint and text measurements from attributes
         //invalidateTextPaintAndMeasurements();
     }
@@ -147,6 +168,7 @@ public class TargetView extends View {
                 if(mIndex<5) {
                     mHitX[mIndex] = x;
                     mHitY[mIndex] = y;
+                    mHitDate[mIndex] = new Date(System.currentTimeMillis());
                     invalidate();
                 }else{
                     mSelHit = selectHit(x,y);
@@ -188,21 +210,34 @@ public class TargetView extends View {
         return mHitY[index]/mContentHeight;
     }
 
+    public Date getHitDate(int index)
+    {
+        return mHitDate[index];
+    }
+
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
 
-        mHitX[0] = 40.0f;
-        mHitX[1] = 130.0f;
-        mHitX[2] = 220.0f;
-        mHitX[3] = 310.0f;
-        mHitX[4] = 400.0f;
+        int radius = h>w?w:h;
+        radius = (radius-150)/2;
+        int hitRadius = radius/12;
 
-        mHitY[0] = h-50.0f;
-        mHitY[1] = h-50.0f;
-        mHitY[2] = h-50.0f;
-        mHitY[3] = h-50.0f;
-        mHitY[4] = h-50.0f;
+        for(int i=0;i<5;i++){
+            mHitX[i] = hitRadius + 2*i*(hitRadius+10) +10;
+            mHitY[i] = h-hitRadius-10;
+        }
+//        mHitX[0] = hitRadius;
+//        mHitX[1] = 130.0f;
+//        mHitX[2] = 220.0f;
+//        mHitX[3] = 310.0f;
+//        mHitX[4] = 400.0f;
+//
+//        mHitY[0] = h-50.0f;
+//        mHitY[1] = h-50.0f;
+//        mHitY[2] = h-50.0f;
+//        mHitY[3] = h-50.0f;
+//        mHitY[4] = h-50.0f;
 
         System.arraycopy(mHitX,0,mHitX0,0,5);
         System.arraycopy(mHitY,0,mHitY0,0,5);
@@ -265,11 +300,15 @@ public class TargetView extends View {
         canvas.drawLine(centerX-radius,centerY,centerX+radius,centerY,mDashPaint);
         canvas.drawLine(centerX,centerY-radius,centerX,centerY+radius,mDashPaint);
 
+        int hitRadius = radius/12;
         for(int i=0;i<5;i++) {
-            canvas.drawCircle(mHitX[i],mHitY[i],40,mHitPaint);
+            //canvas.drawCircle(mHitX[i],mHitY[i],40,mHitPaint);
+            Rect src = new Rect(0,0,mbmpHits.get(i).getWidth(),mbmpHits.get(i).getHeight());
+            Rect dst = new Rect((int)(mHitX[i]-hitRadius),(int)(mHitY[i]-hitRadius),(int)(mHitX[i]+hitRadius),(int)(mHitY[i]+hitRadius));
+            canvas.drawBitmap(mbmpHits.get(i), src,dst,null);
         }
         for(int i=0;i<5;i++) {
-            canvas.drawCircle(mHitX0[i],mHitY0[i],40,mCirclePaint2);
+            canvas.drawCircle(mHitX0[i],mHitY0[i],hitRadius,mCirclePaint2);
         }
         // Draw the text.
 //        canvas.drawText(mExampleString,

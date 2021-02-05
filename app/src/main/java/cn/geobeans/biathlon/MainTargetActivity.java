@@ -17,13 +17,16 @@ import android.widget.Spinner;
 import cn.geobeans.biathlon.entity.Shooting;
 
 public class MainTargetActivity extends AppCompatActivity {
-    private Shooting mShooting = null;
+
+    private String mAthelete = "ZHU";
+    private String mLane = "5-1";
+    private String mVenue;
+    private boolean mbProne = true;
+    private boolean mbZeroing = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        mShooting = new Shooting();
 
         setContentView(R.layout.activity_main_target);
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -38,18 +41,28 @@ public class MainTargetActivity extends AppCompatActivity {
             public void onClick(View view) {
 //                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
 //                        .setAction("Action", null).show();
+                Shooting shooting = new Shooting();
+                shooting.setName(mAthelete);
+                shooting.setLane(mLane);
+                shooting.setX1(tv.getHitX(0));
+                shooting.setY1(tv.getHitY(0));
+                shooting.setX2(tv.getHitX(1));
+                shooting.setY2(tv.getHitY(1));
+                shooting.setX3(tv.getHitX(2));
+                shooting.setY3(tv.getHitY(2));
+                shooting.setX4(tv.getHitX(3));
+                shooting.setY4(tv.getHitY(3));
+                shooting.setX5(tv.getHitX(4));
+                shooting.setY5(tv.getHitY(4));
+
+                shooting.setTime1(tv.getHitDate(0));
+                shooting.setTime2(tv.getHitDate(1));
+                shooting.setTime3(tv.getHitDate(2));
+                shooting.setTime4(tv.getHitDate(3));
+                shooting.setTime5(tv.getHitDate(4));
+
+                shooting.save();
                 tv.reset();
-                mShooting.setX1(tv.getHitX(0));
-                mShooting.setY1(tv.getHitY(0));
-                mShooting.setX2(tv.getHitX(1));
-                mShooting.setY2(tv.getHitY(1));
-                mShooting.setX3(tv.getHitX(2));
-                mShooting.setY3(tv.getHitY(2));
-                mShooting.setX4(tv.getHitX(3));
-                mShooting.setY4(tv.getHitY(3));
-                mShooting.setX5(tv.getHitX(4));
-                mShooting.setY5(tv.getHitY(4));
-                mShooting.save();
             }
         });
 
@@ -65,7 +78,6 @@ public class MainTargetActivity extends AppCompatActivity {
         ArrayAdapter adapter = new ArrayAdapter(this,
                 android.R.layout.simple_spinner_item, array_spinner_size);
         sz.setAdapter(adapter);
-        //s1.setPromptId(index);
         sz.setSelection(0,true);
         sz.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
         {
@@ -74,7 +86,7 @@ public class MainTargetActivity extends AppCompatActivity {
             {
                 TextView tv = (TextView)view;
                 tv.setGravity(android.view.Gravity.CENTER_HORIZONTAL); //设置居中
-                mShooting.setName(array_spinner_size[position]);
+                mAthelete = array_spinner_size[position];
             }
 
             @Override
@@ -97,7 +109,6 @@ public class MainTargetActivity extends AppCompatActivity {
         ArrayAdapter adapter_lane = new ArrayAdapter(this,
                 android.R.layout.simple_spinner_item, array_lane);
         sp_lanes.setAdapter(adapter_lane);
-        //s1.setPromptId(index);
         sp_lanes.setSelection(0,true);
         sp_lanes.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
         {
@@ -105,9 +116,8 @@ public class MainTargetActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
             {
                 TextView tv = (TextView)view;
-                //tv.setTextSize(22.0f); //设置大小
                 tv.setGravity(android.view.Gravity.CENTER_HORIZONTAL); //设置居中
-                mShooting.setLane(array_lane[position]);
+                mLane = array_lane[position];
             }
 
             @Override

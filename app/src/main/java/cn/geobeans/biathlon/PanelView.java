@@ -3,10 +3,13 @@ package cn.geobeans.biathlon;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
+import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.text.TextPaint;
@@ -15,6 +18,8 @@ import android.util.TypedValue;
 import android.view.View;
 
 import androidx.annotation.RequiresApi;
+
+import java.io.IOException;
 
 /**
  * TODO: document your custom view class.
@@ -53,22 +58,24 @@ public class PanelView extends View {
     private Paint.FontMetrics mFontMetrics;
     private float mPointerLength;
 
+    private Bitmap mbmpWind = null;
+
     public PanelView(Context context) {
         super(context);
-        init(null, 0);
+        init(context,null, 0);
     }
 
     public PanelView(Context context, AttributeSet attrs) {
         super(context, attrs);
-        init(attrs, 0);
+        init(context,attrs, 0);
     }
 
     public PanelView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
-        init(attrs, defStyle);
+        init(context,attrs, defStyle);
     }
 
-    private void init(AttributeSet attrs, int defStyle) {
+    private void init(Context context,AttributeSet attrs, int defStyle) {
         // Load attributes
         final TypedArray a = getContext().obtainStyledAttributes(
                 attrs, R.styleable.PanelView, defStyle, 0);
@@ -110,15 +117,8 @@ public class PanelView extends View {
         mCirclePaint = new Paint();
         mCirclePaint.setAntiAlias(true);
         mCirclePaint.setARGB(255,165,165,165);
-        //mCirclePaint.setStyle(Paint.Style.FILL_AND_STROKE);
         mCirclePaint.setStyle(Paint.Style.STROKE);
         mCirclePaint.setStrokeWidth(10.0f);
-
-//        mCirclePaint1 = new Paint();
-//        mCirclePaint1.setAntiAlias(true);
-//        mCirclePaint1.setARGB(255,255,255,255);
-//        mCirclePaint1.setStyle(Paint.Style.FILL_AND_STROKE);
-//        mCirclePaint1.setStrokeWidth(DEFAULT_STROKE_WIDTH);
 
         mDashPaint = new Paint();
         mDashPaint.setAntiAlias(true);
@@ -132,9 +132,12 @@ public class PanelView extends View {
         mPointerPaint.setARGB(255,255,0,0);
         mPointerPaint.setStrokeWidth(8.0f);
         mPointerPaint.setStyle(Paint.Style.FILL_AND_STROKE);
-        //mPointerPaint.setStyle(Paint.Style.FILL);
 
-        //mPointerPath = new Path();
+        try {
+            mbmpWind = BitmapFactory.decodeStream(context.getAssets().open("wind.png"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         // Update TextPaint and text measurements from attributes
         invalidateTextPaintAndMeasurements();
     }
@@ -172,73 +175,37 @@ public class PanelView extends View {
         int contentWidth = getWidth() - paddingLeft - paddingRight;
         int contentHeight = getHeight() - paddingTop - paddingBottom;
 
-        // Draw the example drawable on top of the text.
-        if (mExampleDrawable != null) {
-            mExampleDrawable.setBounds(paddingLeft, paddingTop,
-                    paddingLeft + contentWidth, paddingTop + contentHeight);
-            mExampleDrawable.draw(canvas);
-        }
         //画圆
         float radius = contentHeight>contentWidth?contentWidth:contentHeight;
-        radius -= 2*(mFontMetrics.bottom-mFontMetrics.top);
         radius = radius/2.0f;
-        float pointerL = radius / 1.5f;
+        //float pointerL = radius / 1.5f;
         float cx = paddingLeft + (contentWidth) / 2;
         float cy = paddingTop + (contentHeight) / 2;
-        canvas.drawCircle(cx, cy, radius, mCirclePaint);
+        //canvas.drawCircle(cx, cy, radius, mCirclePaint);
 
-//        canvas.drawLine(cx-radius,cy,cx-radius-pointerL,cy,mDashPaint);
-//        canvas.drawLine(cx+radius,cy,cx+radius+pointerL,cy,mDashPaint);
-//        canvas.drawLine(cx,cy-radius,cx,cy-radius-pointerL,mDashPaint);
-//        canvas.drawLine(cx,cy+radius,cx,cy+radius+pointerL,mDashPaint);
-
-//        canvas.save();
-//        canvas.translate(cx,cy);
-//        canvas.rotate(45.0f);
-//        canvas.drawLine(radius,0.0f,radius+pointerL/2.0f,0.0f,mDashPaint);
-//        canvas.rotate(90.0f);
-//        canvas.drawLine(radius,0.0f,radius+pointerL/2.0f,0.0f,mDashPaint);
-//        canvas.rotate(90.0f);
-//        canvas.drawLine(radius,0.0f,radius+pointerL/2.0f,0.0f,mDashPaint);
-//        canvas.rotate(90.0f);
-//        canvas.drawLine(radius,0.0f,radius+pointerL/2.0f,0.0f,mDashPaint);
-//        canvas.restore();
         // Draw the text.
         canvas.drawText(mWindSpeed,
                 paddingLeft + (contentWidth - mTextWidth) / 2,
                 paddingTop + (contentHeight + 2*mTextHeight) / 2 ,
                 mWindPaint);
         //画指针
-        float startX = (float) (radius*Math.cos(Math.toRadians(DEFAULT_POINTER_ANGLE/2.0f)));
-        float startY = (float) (radius*Math.sin(Math.toRadians(DEFAULT_POINTER_ANGLE/2.0f)));
-        float middleX = radius + pointerL;
-        float middleY = 0.0f;
-        float endX = startX;
-        float endY = -(float) (radius*Math.sin(Math.toRadians(DEFAULT_POINTER_ANGLE/2.0f)));
-
+//        float startX = (float) (radius*Math.cos(Math.toRadians(DEFAULT_POINTER_ANGLE/2.0f)));
+//        float startY = (float) (radius*Math.sin(Math.toRadians(DEFAULT_POINTER_ANGLE/2.0f)));
+//        float middleX = radius + pointerL;
+//        float middleY = 0.0f;
+//        float endX = startX;
+//        float endY = -(float) (radius*Math.sin(Math.toRadians(DEFAULT_POINTER_ANGLE/2.0f)));
+//
         canvas.save();
         canvas.translate(cx,cy);
         canvas.rotate(mAngle);
-        canvas.drawLine(startX,startY,middleX,middleY,mPointerPaint);
-        canvas.drawLine(middleX,middleY,endX,endY,mPointerPaint);
-        canvas.drawArc(-radius,-radius,
-                radius,radius,-15.0f,30.0f,false,mPointerPaint);
-
-        // Draw the angle text.
-//        canvas.save();
-//        int iAngle = (int)mAngle;
-//        String strAngle = String.valueOf((iAngle+90)%360) + "°";
-//        int currentCenterX = (int) (radius + pointerL - dp2px(5) + mAnglePaint.measureText(strAngle) / 2);
-//        canvas.translate(currentCenterX, 0);
-//        canvas.rotate(-mAngle);        //坐标系总旋转角度为360度
-//
-//        int textBaseLine = (int) (0 + (mFontMetrics.bottom - mFontMetrics.top) /2 - mFontMetrics.bottom);
-//
-//        canvas.drawText(strAngle,
-//                0,
-//                textBaseLine ,
-//                mAnglePaint);
-//        canvas.restore();
+        Rect src = new Rect(0,0,mbmpWind.getWidth(),mbmpWind.getHeight());
+        Rect dst = new Rect((int)(-radius),(int)(-radius),(int)(radius),(int)(radius));
+        canvas.drawBitmap(mbmpWind, src,dst,null);
+//        canvas.drawLine(startX,startY,middleX,middleY,mPointerPaint);
+//        canvas.drawLine(middleX,middleY,endX,endY,mPointerPaint);
+//        canvas.drawArc(-radius,-radius,
+//                radius,radius,-15.0f,30.0f,false,mPointerPaint);
         canvas.restore();
     }
 
