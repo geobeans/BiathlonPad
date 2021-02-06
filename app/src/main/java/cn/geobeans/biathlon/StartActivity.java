@@ -146,9 +146,17 @@ public class StartActivity extends AppCompatActivity {
         findViewById(R.id.review_button).setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-//                Intent intent = new Intent(StartActivity.this, MainTargetActivity.class);
-//                startActivity(intent);
-//                StartActivity.this.finish();
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        Intent intent = new Intent(StartActivity.this, RecordActivity.class);
+                        startActivity(intent);
+                        break;
+                    default:
+                        break;
+                }
                 return false;
             }
         });

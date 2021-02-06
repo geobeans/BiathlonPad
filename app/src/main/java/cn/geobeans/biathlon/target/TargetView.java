@@ -1,4 +1,4 @@
-package cn.geobeans.biathlon;
+package cn.geobeans.biathlon.target;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -19,6 +19,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
+import cn.geobeans.biathlon.R;
 
 /**
  * TODO: document your custom view class.
@@ -289,7 +291,7 @@ public class TargetView extends View {
         int centerX = mContentWidth/2;
         int centerY = mContentHeight/2;
         int radius = mContentHeight>mContentWidth?mContentWidth:mContentHeight;
-        radius = (radius-150)/2;
+        radius = radius*4/10;
 
         canvas.drawCircle(centerX, centerY, radius, mCirclePaint);
         canvas.drawCircle(centerX, centerY, radius/4, mCirclePaint2);
