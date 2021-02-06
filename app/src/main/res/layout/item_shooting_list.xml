@@ -48,8 +48,8 @@
     <cn.geobeans.biathlon.target.SimpleTargetView
         android:id="@+id/item_shooting_target"
         style="@style/Widget.AppTheme.MyView"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
      />
 
     <TextView style="@style/view_hor_line" />

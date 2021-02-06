@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.View;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -60,6 +61,9 @@ public class MainTargetActivity extends AppCompatActivity {
                 shooting.setTime3(tv.getHitDate(2));
                 shooting.setTime4(tv.getHitDate(3));
                 shooting.setTime5(tv.getHitDate(4));
+
+                RadioButton rb = findViewById(R.id.prone);
+                shooting.setProne(rb.isChecked());
 
                 shooting.save();
                 tv.reset();

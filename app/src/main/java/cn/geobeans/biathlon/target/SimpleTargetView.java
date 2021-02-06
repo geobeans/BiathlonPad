@@ -17,6 +17,7 @@ import cn.geobeans.biathlon.R;
  * TODO: document your custom view class.
  */
 public class SimpleTargetView extends View {
+    private Paint mBackgroudPaint;
     private Paint mCirclePaint; //画圆画笔
     private Paint mCirclePaint1; //画圆画笔
 
@@ -51,11 +52,15 @@ public class SimpleTargetView extends View {
         }
 
         //画圆画笔初始化
+        mBackgroudPaint = new Paint();
+        mBackgroudPaint.setARGB(255,255,255,255);
+        mBackgroudPaint.setStyle(Paint.Style.FILL);
+
         mCirclePaint = new Paint();
         mCirclePaint.setAntiAlias(true);
         mCirclePaint.setARGB(255,0,0,0);
         mCirclePaint.setStyle(Paint.Style.STROKE);
-        mCirclePaint.setStrokeWidth(3.0f);
+        mCirclePaint.setStrokeWidth(6.0f);
 
         mCirclePaint1 = new Paint();
         mCirclePaint1.setAntiAlias(true);
@@ -69,12 +74,14 @@ public class SimpleTargetView extends View {
 
     public void setHitX(float[] x)
     {
-        System.arraycopy(mHitX,0,x,0,8);
+        System.arraycopy(x,0,mHitX,0,8);
+        invalidate();
     }
 
     public void setHitY(float[] y)
     {
-        System.arraycopy(mHitY,0,y,0,8);
+        System.arraycopy(y,0,mHitY,0,8);
+        invalidate();
     }
 
     private void invalidateTextPaintAndMeasurements() {
@@ -93,6 +100,7 @@ public class SimpleTargetView extends View {
 
         int contentWidth = getWidth() - paddingLeft - paddingRight;
         int contentHeight = getHeight() - paddingTop - paddingBottom;
+        canvas.drawRect(0.0f,0.0f,contentWidth,contentHeight,mBackgroudPaint);
 
         int centerX = contentWidth/2;
         int centerY = contentHeight/2;
