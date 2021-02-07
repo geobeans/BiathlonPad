@@ -13,6 +13,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bigkoo.pickerview.adapter.ArrayWheelAdapter;
 import com.contrarywind.listener.OnItemSelectedListener;
 import com.contrarywind.view.WheelView;
 
@@ -129,7 +130,7 @@ public class RecordActivity extends AppCompatActivity {
 //                                hitY[7] = shot.getY8();
 //                                tv.setHitX(hitX);
 //                                tv.setHitY(hitY);
-                                WheelView wheelView = findViewById(R.id.wheelview);
+                                WheelView wheelView = v.findViewById(R.id.wheelview);
 
                                 wheelView.setCyclic(false);
 
@@ -137,6 +138,9 @@ public class RecordActivity extends AppCompatActivity {
                                 mOptionsItems.add("item0");
                                 mOptionsItems.add("item1");
                                 mOptionsItems.add("item2");
+                                mOptionsItems.add("item3");
+                                mOptionsItems.add("item4");
+                                mOptionsItems.add("item5");
 
                                 wheelView.setAdapter(new ArrayWheelAdapter(mOptionsItems));
                                 wheelView.setOnItemSelectedListener(new OnItemSelectedListener() {
@@ -147,7 +151,8 @@ public class RecordActivity extends AppCompatActivity {
                                 });
                             }
                         })
-                        .setLayoutRes(R.layout.popup_target)
+                        //.setLayoutRes(R.layout.popup_target)
+                        .setLayoutRes(R.layout.item_select)
                         //.setDimAmount(0.0f)
                         .show();
 
