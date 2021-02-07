@@ -55,6 +55,10 @@ public class TargetView extends View {
     float[] mHitX0 = new float[8];
     float[] mHitY0 = new float[8];
 
+    boolean mbUseNormValue = false;
+    float[] mNormHitX = new float[8];
+    float[] mNormHitY = new float[8];
+
     Date[] mHitDate = new Date[8];
 
     List<Bitmap> mbmpHits = new ArrayList<>();
@@ -217,6 +221,20 @@ public class TargetView extends View {
         return mHitDate[index];
     }
 
+    public void setHitX(float[] x)
+    {
+        mbUseNormValue = true;
+        System.arraycopy(x,0,mNormHitX,0,8);
+        //invalidate();
+    }
+
+    public void setHitY(float[] y)
+    {
+        mbUseNormValue = true;
+        System.arraycopy(y,0,mNormHitY,0,8);
+        //invalidate();
+    }
+
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
@@ -305,8 +323,14 @@ public class TargetView extends View {
         int hitRadius = radius/12;
         for(int i=0;i<5;i++) {
             //canvas.drawCircle(mHitX[i],mHitY[i],40,mHitPaint);
+            float hitX = mHitX[i];
+            float hitY = mHitY[i];
+            if(mbUseNormValue){
+                hitX = mNormHitX[i]*mContentWidth;
+                hitY = mNormHitY[i]*mContentHeight;
+            }
             Rect src = new Rect(0,0,mbmpHits.get(i).getWidth(),mbmpHits.get(i).getHeight());
-            Rect dst = new Rect((int)(mHitX[i]-hitRadius),(int)(mHitY[i]-hitRadius),(int)(mHitX[i]+hitRadius),(int)(mHitY[i]+hitRadius));
+            Rect dst = new Rect((int)(hitX-hitRadius),(int)(hitY-hitRadius),(int)(hitX+hitRadius),(int)(hitY+hitRadius));
             canvas.drawBitmap(mbmpHits.get(i), src,dst,null);
         }
         for(int i=0;i<5;i++) {

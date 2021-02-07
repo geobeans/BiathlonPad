@@ -60,6 +60,7 @@ public class ShotListAdapter extends BaseAdapter {
         SimpleDateFormat ft = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         holder.item_shooting_time.setText(ft.format(date));
         holder.item_shooting_model.setText("zeroing-1");
+        holder.item_shooting_zone.setText(shot.getLane());
 
         float[] hitX = new float[8];
         float[] hitY = new float[8];

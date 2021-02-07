@@ -1,13 +1,184 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="wrap_content">
 <LinearLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:ignore="MissingConstraints">
+    <TextView
+        android:id ="@+id/simple_target_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="ZHU-ZEROING1-PRONE"
+        android:textSize="26dp"
+        android:textColor="@color/colorBlack"
+        android:background="@color/colorWhite"/>
+    <cn.geobeans.biathlon.target.TargetView
+        android:id = "@+id/simple_target_1"
+        style="@style/Widget.AppTheme.MyView"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
 
-    
+        app:exampleDimension="24sp"
+        app:exampleDrawable="@android:drawable/ic_menu_add"
+        app:exampleString="Hello, TargetView" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/colorWhite">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="1"
+            android:gravity="center"
+            android:textColor="@color/colorBlack"
+            android:textSize="22dp">
+        </TextView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="2"
+            android:gravity="center"
+            android:textColor="@color/colorBlack"
+            android:textSize="22dp">
+        </TextView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="3"
+            android:gravity="center"
+            android:textColor="@color/colorBlack"
+            android:textSize="22dp">
+        </TextView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="4"
+            android:gravity="center"
+            android:textColor="@color/colorBlack"
+            android:textSize="22dp">
+        </TextView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="5"
+            android:gravity="center"
+            android:textColor="@color/colorBlack"
+            android:textSize="22dp">
+        </TextView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="6"
+            android:gravity="center"
+            android:textSize="22dp"
+            android:visibility="gone">
+        </TextView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="7"
+            android:gravity="center"
+            android:textSize="22dp"
+            android:visibility="gone">
+        </TextView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="8"
+            android:gravity="center"
+            android:textSize="22dp"
+            android:visibility="gone">
+        </TextView>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/colorWhite">
+        <cn.geobeans.biathlon.PanelView
+            android:id = "@+id/panel_1"
+            style = "@style/item_panel"
+            app:textColor="#173E8E"
+            app:textDimension="18sp"
+            app:windSpeedString="0.0"
+            app:angleDimension="14sp"
+            app:angle="-90.0"/>
+        <cn.geobeans.biathlon.PanelView
+            android:id = "@+id/panel_2"
+            style = "@style/item_panel"
+            app:textColor="#173E8E"
+            app:textDimension="18sp"
+            app:windSpeedString="0.0"
+            app:angleDimension="14sp"
+            app:angle="-90.0"/>
+        <cn.geobeans.biathlon.PanelView
+            android:id = "@+id/panel_3"
+            style = "@style/item_panel"
+            app:textColor="#173E8E"
+            app:textDimension="18sp"
+            app:windSpeedString="0.0"
+            app:angleDimension="14sp"
+            app:angle="-90.0"/>
+        <cn.geobeans.biathlon.PanelView
+            android:id = "@+id/panel_4"
+            style = "@style/item_panel"
+            app:textColor="#173E8E"
+            app:textDimension="18sp"
+            app:windSpeedString="0.0"
+            app:angleDimension="14sp"
+            app:angle="-90.0"/>
+        <cn.geobeans.biathlon.PanelView
+            android:id = "@+id/panel_5"
+            style = "@style/item_panel"
+            app:textColor="#173E8E"
+            app:textDimension="18sp"
+            app:windSpeedString="0.0"
+            app:angleDimension="14sp"
+            app:angle="-90.0"/>
+        <cn.geobeans.biathlon.PanelView
+            android:id = "@+id/panel_6"
+            style = "@style/item_panel"
+            app:textColor="#173E8E"
+            app:textDimension="18sp"
+            app:windSpeedString="0.0"
+            app:angleDimension="14sp"
+            app:angle="-90.0"
+            android:visibility="gone"/>
+        <cn.geobeans.biathlon.PanelView
+            android:id = "@+id/panel_7"
+            style = "@style/item_panel"
+            app:textColor="#173E8E"
+            app:textDimension="18sp"
+            app:windSpeedString="0.0"
+            app:angleDimension="14sp"
+            app:angle="-90.0"
+            android:visibility="gone"/>
+        <cn.geobeans.biathlon.PanelView
+            android:id = "@+id/panel_8"
+            style = "@style/item_panel"
+            app:textColor="#173E8E"
+            app:textDimension="18sp"
+            app:windSpeedString="0.0"
+            app:angleDimension="14sp"
+            app:angle="-90.0"
+            android:visibility="gone"/>
+    </LinearLayout>
 </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

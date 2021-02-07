@@ -64,6 +64,8 @@ public class MainTargetActivity extends AppCompatActivity {
 
                 RadioButton rb = findViewById(R.id.prone);
                 shooting.setProne(rb.isChecked());
+                RadioButton rbZero = findViewById(R.id.zeoring_yes);
+                shooting.setModel(rbZero.isChecked()?"ZEROING":"COMP");
 
                 shooting.save();
                 tv.reset();

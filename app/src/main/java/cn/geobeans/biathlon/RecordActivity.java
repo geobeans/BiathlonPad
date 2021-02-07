@@ -11,14 +11,21 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.contrarywind.listener.OnItemSelectedListener;
+import com.contrarywind.view.WheelView;
 
 import org.litepal.LitePal;
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import cn.geobeans.biathlon.entity.Shooting;
+import cn.geobeans.biathlon.target.TargetView;
 import cn.geobeans.biathlon.utils.ShotListAdapter;
+import me.shaohui.bottomdialog.BottomDialog;
 
 public class RecordActivity extends AppCompatActivity {
 
@@ -92,7 +99,57 @@ public class RecordActivity extends AppCompatActivity {
 
         item_view_lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
+                BottomDialog.create(getSupportFragmentManager())
+                        .setViewListener(new BottomDialog.ViewListener() {
+                            @Override
+                            public void bindView(View v) {
+//                                Shooting shot = mDatas.get(position);
+//                                TextView txtView = v.findViewById(R.id.simple_target_title);
+//                                String strProne = shot.isProne() ? "PRONE" : "STAND";
+//                                txtView.setText(shot.getName()+"-"+shot.getModel()+"-"+strProne+"-"+shot.getLane());
+//                                TargetView tv = v.findViewById(R.id.simple_target_1);
+//                                float[] hitX = new float[8];
+//                                float[] hitY = new float[8];
+//                                hitX[0] = shot.getX1();
+//                                hitY[0] = shot.getY1();
+//                                hitX[1] = shot.getX2();
+//                                hitY[1] = shot.getY2();
+//                                hitX[2] = shot.getX3();
+//                                hitY[2] = shot.getY3();
+//                                hitX[3] = shot.getX4();
+//                                hitY[3] = shot.getY4();
+//                                hitX[4] = shot.getX5();
+//                                hitY[4] = shot.getY5();
+//                                hitX[5] = shot.getX6();
+//                                hitY[5] = shot.getY6();
+//                                hitX[6] = shot.getX7();
+//                                hitY[6] = shot.getY7();
+//                                hitX[7] = shot.getX8();
+//                                hitY[7] = shot.getY8();
+//                                tv.setHitX(hitX);
+//                                tv.setHitY(hitY);
+                                WheelView wheelView = findViewById(R.id.wheelview);
+
+                                wheelView.setCyclic(false);
+
+                                final List<String> mOptionsItems = new ArrayList<>();
+                                mOptionsItems.add("item0");
+                                mOptionsItems.add("item1");
+                                mOptionsItems.add("item2");
+
+                                wheelView.setAdapter(new ArrayWheelAdapter(mOptionsItems));
+                                wheelView.setOnItemSelectedListener(new OnItemSelectedListener() {
+                                    @Override
+                                    public void onItemSelected(int index) {
+                                        Toast.makeText(RecordActivity.this, "" + mOptionsItems.get(index), Toast.LENGTH_SHORT).show();
+                                    }
+                                });
+                            }
+                        })
+                        .setLayoutRes(R.layout.popup_target)
+                        //.setDimAmount(0.0f)
+                        .show();
 
             }
         });
