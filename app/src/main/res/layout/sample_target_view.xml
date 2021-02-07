@@ -13,5 +13,10 @@
         app:exampleDimension="24sp"
         app:exampleDrawable="@android:drawable/ic_menu_add"
         app:exampleString="Hello, TargetView" />
-
+    <ImageButton
+        android:id = "@+id/del_bullet"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_gravity="top|right"
+        android:src="@drawable/close_x"/>
 </FrameLayout>
