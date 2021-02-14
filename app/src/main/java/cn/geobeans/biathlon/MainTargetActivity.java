@@ -1,5 +1,6 @@
 package cn.geobeans.biathlon;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.bigkoo.pickerview.builder.OptionsPickerBuilder;
@@ -8,9 +9,12 @@ import com.bigkoo.pickerview.listener.OnOptionsSelectListener;
 import com.bigkoo.pickerview.view.OptionsPickerView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RadioButton;
@@ -20,11 +24,12 @@ import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
+import cn.geobeans.biathlon.bluetooth.MainActivity;
 import cn.geobeans.biathlon.entity.OptionBean;
 import cn.geobeans.biathlon.entity.Shooting;
 import cn.geobeans.biathlon.target.TargetView;
 
-public class MainTargetActivity extends AppCompatActivity {
+public class MainTargetActivity extends BaseActivity {
     protected DecimalFormat decimalFormat = new DecimalFormat("0.0");
     private String mAthelete = "ZHU";
     private String mLane = "5-1";
@@ -47,11 +52,26 @@ public class MainTargetActivity extends AppCompatActivity {
     }
 
     @Override
+    public void result(String[] data) {
+        if (Long.parseLong(data[5], 16) == 0) {
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    //parseFS_FX(data);
+                }
+            });
+        }
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main_target);
         Toolbar toolbar = findViewById(R.id.toolbar);
+
+        mActivityList.add(this);
+
 
         PanelView panel1 = findViewById(R.id.panel_1);
         mPanels.add(panel1);
@@ -302,5 +322,24 @@ public class MainTargetActivity extends AppCompatActivity {
 //            }
 //
 //        });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.toolbar,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.bluetooth_con:
+                Intent intent = new Intent(MainTargetActivity.this, MainActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.exit_app:
+                break;
+        }
+        return true;
     }
 }

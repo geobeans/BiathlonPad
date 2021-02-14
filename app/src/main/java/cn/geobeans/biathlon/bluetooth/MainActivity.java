@@ -137,9 +137,9 @@ public class MainActivity extends AppCompatActivity {
                         //Intent intent = new Intent(MainActivity.this, SecondShow.class);
 //                        Intent intent = new Intent(MainActivity.this, MainShow.class);
 //                        startActivity(intent);
-//                        MainActivity.this.finish();
-//                        MTOperate.getInstance().setMtModule(device);
-//                        PreferencesUtil.getInstance().saveParam("deviceName", device.getName());
+                        MainActivity.this.finish();
+                        MTOperate.getInstance().setMtModule(device);
+                        PreferencesUtil.getInstance().saveParam("deviceName", device.getName());
                         break;
                     case DeviceLinkStatus_ConnectFailed:
                     case DeviceLinkStatus_Disconnect:
