@@ -151,7 +151,6 @@
             app:angle="-90.0"
             android:visibility="gone"/>
         <cn.geobeans.biathlon.PanelView
-            android:id = "@+id/panel_7"
             style = "@style/item_panel"
             app:textColor="#173E8E"
             app:textDimension="18sp"
@@ -160,7 +159,6 @@
             app:angle="-90.0"
             android:visibility="gone"/>
         <cn.geobeans.biathlon.PanelView
-            android:id = "@+id/panel_8"
             style = "@style/item_panel"
             app:textColor="#173E8E"
             app:textDimension="18sp"
@@ -181,13 +179,24 @@
             android:layout_marginLeft="10dp"
             android:textSize="22dp">
         </TextView>
-        <Spinner
-            android:id="@+id/athelete"
+        <TextView
+            android:id="@+id/atheletes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="ZHU"
+            android:gravity="right"
             android:textSize="22dp"
             android:layout_weight="1"
             />
+        <ImageView
+            android:id="@+id/iv_select_athelete"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="10dp"
+            android:padding="8dp"
+            android:src="@drawable/to_down" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -201,13 +210,24 @@
             android:layout_marginLeft="10dp"
             android:textSize="22dp">
         </TextView>
-        <Spinner
+        <TextView
             android:id="@+id/lanes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text = "5-1"
+            android:gravity="right"
             android:textSize="22dp"
             android:layout_weight="1"
             />
+        <ImageView
+            android:id="@+id/iv_select_lane"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="10dp"
+            android:padding="8dp"
+            android:src="@drawable/to_down" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -222,7 +242,6 @@
             android:textSize="22dp">
         </TextView>
         <RadioGroup
-            android:id="@+id/rg_prone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -238,7 +257,6 @@
                 android:textSize="22dp" />
 
             <RadioButton
-                android:id="@+id/stand"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Stand"
@@ -259,7 +277,6 @@
             android:textSize="22dp">
         </TextView>
         <RadioGroup
-            android:id="@+id/rg_zeoring"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -276,7 +293,6 @@
                 />
 
             <RadioButton
-                android:id="@+id/zeoring_no"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="No"
@@ -291,6 +307,10 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
+        android:scaleType="fitCenter"
+        android:backgroundTint="@color/colorBlack"
+        app:backgroundTint="@color/colorBlack"
+        android:tint="@color/colorWhite"
+        app:srcCompat="@android:drawable/ic_menu_save" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

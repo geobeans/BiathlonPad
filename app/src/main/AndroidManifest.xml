@@ -31,11 +31,6 @@
             </intent-filter>
         </activity>
 
-        <service
-            android:name=".PlaymusicService"
-            android:enabled="true"
-            android:exported="true" />
-
         <activity
             android:name=".MainTargetActivity"
             android:label="@string/title_activity_main_target"
@@ -49,45 +44,7 @@
             <!-- </intent-filter> -->
         </activity>
         <activity
-            android:name="cn.geobeans.biathlon_landscape.WindrenderActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:label="@string/title_activity_windrender"
-            android:screenOrientation="landscape"
-            android:theme="@style/FullscreenTheme">
-
-            <!-- <intent-filter> -->
-            <!-- <action android:name="android.intent.action.MAIN" /> -->
-
-
-            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-            <!-- </intent-filter> -->
-        </activity>
-        <activity
-            android:name=".SettingsActivity"
-            android:label="@string/title_activity_settings" />
-        <activity
-            android:name=".SecondShow"
-            android:label="@string/title_activity_main_show"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".ThirdShow"
-            android:label="@string/title_activity_main_show"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
             android:name=".bluetooth.MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-
-            <!-- <intent-filter> -->
-            <!-- <action android:name="android.intent.action.MAIN" /> -->
-
-
-            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-            <!-- </intent-filter> -->
-        </activity>
-        <activity
-            android:name=".MainShow"
-            android:label="@string/title_activity_main_show"
-            android:screenOrientation="landscape"
             android:theme="@style/AppTheme.NoActionBar">
 
             <!-- <intent-filter> -->

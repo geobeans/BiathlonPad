@@ -15,6 +15,8 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 
+import androidx.annotation.Nullable;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
@@ -42,6 +44,8 @@ public class TargetView extends View {
     private Paint mBackgroudPaint;
 
     private Paint mHitPaint;
+
+    private onViewClick mViewClick;
 
     private int mContentWidth = 0;
     private int mContentHeight = 0;
@@ -109,7 +113,8 @@ public class TargetView extends View {
         mCirclePaint.setStyle(Paint.Style.FILL_AND_STROKE);
 
         mBackgroudPaint = new Paint();
-        mBackgroudPaint.setARGB(247,247,9,104);
+        //mBackgroudPaint.setARGB(247,247,9,104);
+        mBackgroudPaint.setARGB(255,255,0,0);
         mBackgroudPaint.setStyle(Paint.Style.FILL);
 
         mCirclePaint1 = new Paint();
@@ -162,6 +167,17 @@ public class TargetView extends View {
         mTextHeight = fontMetrics.bottom;
     }
 
+    public void setOnViewClick(onViewClick click) {
+        this.mViewClick = click;
+    }
+
+
+    public interface onViewClick {
+
+        void onClick(int index);
+    }
+
+
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         float x = event.getX();
@@ -193,6 +209,7 @@ public class TargetView extends View {
                 //touch_up();
                 //invalidate();
                 if(mIndex<5) {
+                    mViewClick.onClick(mIndex);
                     mIndex++;
                 }else{
                     mSelHit = -1;

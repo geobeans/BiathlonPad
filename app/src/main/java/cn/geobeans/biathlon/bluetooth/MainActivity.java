@@ -19,7 +19,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -35,10 +34,7 @@ import com.minew.modulekit.interfaces.ScanMTModuleCallback;
 import java.util.LinkedList;
 import java.util.List;
 
-import cn.geobeans.biathlon.MainShow;
 import cn.geobeans.biathlon.R;
-import cn.geobeans.biathlon.SecondShow;
-import cn.geobeans.biathlon.ThirdShow;
 import cn.geobeans.biathlon.utils.PreferencesUtil;
 
 public class MainActivity extends AppCompatActivity {
@@ -139,11 +135,11 @@ public class MainActivity extends AppCompatActivity {
                     case DeviceLinkStatus_Connected:
                         //Intent intent = new Intent(MainActivity.this, ThirdShow.class);
                         //Intent intent = new Intent(MainActivity.this, SecondShow.class);
-                        Intent intent = new Intent(MainActivity.this, MainShow.class);
-                        startActivity(intent);
-                        MainActivity.this.finish();
-                        MTOperate.getInstance().setMtModule(device);
-                        PreferencesUtil.getInstance().saveParam("deviceName", device.getName());
+//                        Intent intent = new Intent(MainActivity.this, MainShow.class);
+//                        startActivity(intent);
+//                        MainActivity.this.finish();
+//                        MTOperate.getInstance().setMtModule(device);
+//                        PreferencesUtil.getInstance().saveParam("deviceName", device.getName());
                         break;
                     case DeviceLinkStatus_ConnectFailed:
                     case DeviceLinkStatus_Disconnect:

@@ -1,43 +1,22 @@
 <resources>
     <string name="app_name">Shooting</string>
-    <string name="title_activity_main_show">Winter Olympics Biathlon Monitoring</string>
     <!--        <string name="title_activity_main_show">模拟横版</string>-->
 
     <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
-
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 
     <string name="connecting">Connecting:</string>
     <string name="ope_write">Write</string>
-    <string name="title_activity_fullscreen">FullscreenActivity</string>
     <string name="training_button">Training</string>
     <string name="comp_button">Comp.</string>
     <string name="join_button">Join Event</string>
     <string name="review_button">Review</string>
     <string name="dummy_content">BIATHLON\nRecording</string>
-    <string name="title_activity_second_show">SecondShow</string>
-    <string name="title_activity_settings">Setting</string>
 
     <!-- Preference Titles -->
-    <string name="messages_header">Range shift</string>
-    <string name="sync_header">Data Record</string>
 
     <!-- Messages Preferences -->
-    <string name="signature_title">Offset Angle</string>
-    <string name="reply_title">Default reply action</string>
 
     <!-- Sync Preferences -->
-    <string name="sync_title">Write to File</string>
-    <string name="attachment_title">Download incoming attachments</string>
-    <string name="attachment_summary_on">Automatically download attachments for incoming emails
-    </string>
-    <string name="attachment_summary_off">Only download attachments when manually requested</string>
-    <string name="title_activity_windrender">FullscreenActivity</string>
     <string name="title_activity_main_target">Target</string>
     <string name="title_activity_start">Recording</string>
     <string name="zanwushuju">no data</string>

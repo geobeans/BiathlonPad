@@ -17,7 +17,17 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fitsSystemWindows="true">
-
+        <TextView
+            android:id="@+id/fullscreen_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:keepScreenOn="true"
+            android:background="@drawable/biathlon"
+            android:text="@string/dummy_content"
+            android:textColor="?attr/fullscreenTextColor"
+            android:textSize="50sp"
+            android:textStyle="bold" />
         <LinearLayout
             android:id="@+id/fullscreen_content_controls"
             style="@style/Widget.AppTheme.ButtonBar.Fullscreen"
@@ -34,20 +44,27 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/training_button"
+                android:textSize="26dp"
+                android:textColor="@color/colorWhite"
+                android:textStyle="bold"
                 />
             <Button
-                android:id="@+id/comp_button"
                 style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textSize="26dp"
+                android:textColor="@color/colorWhite"
+                android:textStyle="bold"
                 android:text="@string/comp_button" />
             <Button
-                android:id="@+id/join_button"
                 style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textSize="26dp"
+                android:textColor="@color/colorWhite"
+                android:textStyle="bold"
                 android:text="@string/join_button" />
             <Button
                 android:id="@+id/review_button"
@@ -55,20 +72,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textSize="26dp"
+                android:textColor="@color/colorWhite"
+                android:textStyle="bold"
                 android:text="@string/review_button" />
 
         </LinearLayout>
-
-        <TextView
-            android:id="@+id/fullscreen_content"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:keepScreenOn="true"
-            android:text="@string/dummy_content"
-            android:textColor="?attr/fullscreenTextColor"
-            android:textSize="50sp"
-            android:textStyle="bold" />
     </FrameLayout>
 
 </FrameLayout>

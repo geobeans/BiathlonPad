@@ -35,7 +35,7 @@ public class App extends Application implements IExceptionHandler {
         super.onCreate();
         mContext = this;
         LitePal.initialize(this);
-        CrashHandler.getInstance().init(this);
+        //CrashHandler.getInstance().init(this);
         PreferencesUtil.getInstance().init(this);
     }
 

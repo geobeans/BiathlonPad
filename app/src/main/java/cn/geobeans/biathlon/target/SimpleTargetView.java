@@ -53,18 +53,18 @@ public class SimpleTargetView extends View {
 
         //画圆画笔初始化
         mBackgroudPaint = new Paint();
-        mBackgroudPaint.setARGB(255,255,255,255);
+        mBackgroudPaint.setARGB(255,255,0,0);
         mBackgroudPaint.setStyle(Paint.Style.FILL);
 
         mCirclePaint = new Paint();
         mCirclePaint.setAntiAlias(true);
         mCirclePaint.setARGB(255,0,0,0);
-        mCirclePaint.setStyle(Paint.Style.STROKE);
+        mCirclePaint.setStyle(Paint.Style.FILL_AND_STROKE);
         mCirclePaint.setStrokeWidth(6.0f);
 
         mCirclePaint1 = new Paint();
         mCirclePaint1.setAntiAlias(true);
-        mCirclePaint1.setARGB(255,255,0,0);
+        mCirclePaint1.setARGB(255,255,255,255);
         mCirclePaint1.setStyle(Paint.Style.FILL_AND_STROKE);
 
 
